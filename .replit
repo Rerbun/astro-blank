@@ -1,0 +1,14 @@
+modules = ["nodejs-20:v10-20231103-2b03dda"]
+run = "astro dev --host"
+
+[nix]
+channel = "stable-22_11"
+
+[deployment]
+build = ["npm", "run", "build"]
+run = ["node", "build"]
+deploymentTarget = "gce"
+
+[[ports]]
+localPort = 4321
+externalPort = 80
